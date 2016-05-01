@@ -30,29 +30,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".setings"
+            android:name=".settings"
             android:label="@string/title_activity_setings"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
-            android:name=".vlaues"
+            android:name=".values"
             android:hardwareAccelerated="false"
 
             android:label="@string/title_activity_vlaues"
-            android:parentActivityName=".setings"
+            android:parentActivityName=".settings"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.nolan.myapplication.setings" />
+                android:value=".settings" />
         </activity>
         <activity
             android:name=".colors"
             android:label="@string/title_activity_colors"
-            android:parentActivityName=".setings"
+            android:parentActivityName=".settings"
             android:theme="@style/AppTheme.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.nolan.myapplication.setings" />
+                android:value=".settings" />
         </activity>
     </application>
 

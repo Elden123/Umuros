@@ -7,6 +7,238 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_vlaues" tools:context="com.example.nolan.myapplication.vlaues">
+    tools:showIn="@layout/activity_vlaues" tools:context=".values">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Happy"
+        android:id="@+id/textView"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Afraid"
+        android:id="@+id/textView11"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_above="@+id/textView12"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15"
+        android:layout_marginBottom="14dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Positive"
+        android:id="@+id/textView12"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_above="@+id/textView13"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Angry"
+        android:id="@+id/textView13"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_above="@+id/textView14"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="17dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Confused"
+        android:id="@+id/textView14"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_marginBottom="15dp"
+        android:layout_above="@+id/textView15"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Romantic"
+        android:id="@+id/textView15"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_marginBottom="15dp"
+        android:layout_above="@+id/textView16"
+        android:layout_alignRight="@+id/textView14"
+        android:layout_alignEnd="@+id/textView14" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Open"
+        android:id="@+id/textView16"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_marginBottom="15dp"
+        android:layout_above="@+id/textView17"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Strong"
+        android:id="@+id/textView17"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_marginBottom="12dp"
+        android:layout_above="@+id/textView18"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Sad"
+        android:id="@+id/textView18"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_marginBottom="13dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/happyPer"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/afraidPer"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_alignTop="@+id/textView11"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/positivePer"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_alignTop="@+id/textView12"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/angryPer"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_alignTop="@+id/textView13"
+        android:layout_alignRight="@+id/positivePer"
+        android:layout_alignEnd="@+id/positivePer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/confusePer"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/positivePer"
+        android:layout_alignEnd="@+id/positivePer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/romanticPer"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_alignTop="@+id/textView15"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/openPer"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_below="@+id/textView15"
+        android:layout_alignRight="@+id/strongPer"
+        android:layout_alignEnd="@+id/strongPer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/strongPer"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_below="@+id/textView16"
+        android:layout_alignRight="@+id/sadPer"
+        android:layout_alignEnd="@+id/sadPer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/sadPer"
+        android:textColor="#8cfff2eb"
+        android:textSize="40dp"
+        android:layout_column="0"
+        android:layout_below="@+id/textView17"
+        android:layout_alignRight="@+id/confusePer"
+        android:layout_alignEnd="@+id/confusePer" />
 </RelativeLayout>
