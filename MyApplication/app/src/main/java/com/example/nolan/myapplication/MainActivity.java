@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         int lonely, desperate, unhappy, pained; //sad
         int fearful, terrified, anxious, nervous; //afraid
         int perplexed, skeptical, lost, unsure; //confused
-        int understanding, sympathetic, accepting, interested;
+        int understanding, sympathetic, accepting, interested; //open
 
         //happy
         great = search("great");
@@ -164,22 +164,22 @@ public class MainActivity extends AppCompatActivity {
         else if(maxCount == open) moodOfTwitter = "Open";
         else moodOfTwitter = "Neutral";
 
-        moodOfTwitter = "Romantic";
+
         Log.d("Mood of Twitter", moodOfTwitter + "");
 
         theMood.setText(moodOfTwitter + "!");
 
         View view = this.getWindow().getDecorView();
 
-        if(moodOfTwitter == "Happy") view.setBackgroundColor(0xffe67e22);
-        else if(moodOfTwitter.equals("Romantic")) view.setBackgroundColor(0xffc0392b);
-        else if(moodOfTwitter.equals("Positive")) view.setBackgroundColor(0x7f8c8d);
+        if(moodOfTwitter == "Happy") view.setBackgroundColor(0xff3498db);
+        else if(moodOfTwitter.equals("Romantic")) view.setBackgroundColor(0xff1abc9c);
+        else if(moodOfTwitter.equals("Positive")) view.setBackgroundColor(0x2ecc71);
         else if(moodOfTwitter.equals("Strong")) view.setBackgroundColor(0xff34495e);
-        else if(moodOfTwitter.equals("Angry")) view.setBackgroundColor(0xff9b59b6);
-        else if(moodOfTwitter.equals("Sad")) view.setBackgroundColor(0xff3498db);
-        else if(moodOfTwitter.equals("Afraid")) view.setBackgroundColor(0xff2ecc71);
-        else if(moodOfTwitter.equals("Confused")) view.setBackgroundColor(0xff1abc9c);
-        else if(moodOfTwitter.equals("Open")) view.setBackgroundColor(0xfff39c12);
+        else if(moodOfTwitter.equals("Angry")) view.setBackgroundColor(0xffc0392b);
+        else if(moodOfTwitter.equals("Sad")) view.setBackgroundColor(0xff95a5a6);
+        else if(moodOfTwitter.equals("Afraid")) view.setBackgroundColor(0xffe67e22);
+        else if(moodOfTwitter.equals("Confused")) view.setBackgroundColor(0xfff39c12);
+        else if(moodOfTwitter.equals("Open")) view.setBackgroundColor(0xff9b59b6);
         else view.setBackgroundColor(0xffe67e22);
 
     }
