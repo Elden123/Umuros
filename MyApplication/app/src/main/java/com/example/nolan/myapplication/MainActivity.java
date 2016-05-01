@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
+import twitter4j.Trends;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -27,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     Twitter twitter;
     TextView whatTweet;
     TextView theMood;
-    public static String moodOfTwitter;
+    static String moodOfTwitter;
+    static int happy, romantic, positive, strong, angry, sad, afraid, confused, open;
 
-    public static int happy, romantic, positive, strong, angry, sad, afraid, confused, open;
     TextView textViewInfo;
     GifView gifView;
     ImageView imageView;
@@ -43,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
 
         StrictMode.setThreadPolicy(policy);
 
+        ConfigurationBuilder cb = new ConfigurationBuilder();
+        cb.setDebugEnabled(true)
+                .setOAuthConsumerKey("1oH0TljZMX2JXVDTPgyPGXQH6")
+                .setOAuthConsumerSecret("GaYp0TNZrBdjcKuIiVHZFMJ93aCyKT04lwhj9KDKpITC84Oz5u")
+                .setOAuthAccessToken("4870958294-D9cxRtxrb3uyDPhWAL4KYJE8fJhTFXOU19krBX3")
+                .setOAuthAccessTokenSecret("nLTKCCvN0AmKBH6Gxb32ZXHrLDRFdzYhkRBSTsKbwUlmm");
+        TwitterFactory tf = new TwitterFactory(cb.build());
+        twitter = tf.getInstance();
+
         whatTweet = (TextView) findViewById(R.id.whatTweet);
         theMood = (TextView) findViewById(R.id.theMood);
         Button toSettings = (Button) findViewById(R.id.toSettings);
@@ -54,14 +65,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ConfigurationBuilder cb = new ConfigurationBuilder();
-        cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("1oH0TljZMX2JXVDTPgyPGXQH6")
-                .setOAuthConsumerSecret("GaYp0TNZrBdjcKuIiVHZFMJ93aCyKT04lwhj9KDKpITC84Oz5u")
-                .setOAuthAccessToken("4870958294-D9cxRtxrb3uyDPhWAL4KYJE8fJhTFXOU19krBX3")
-                .setOAuthAccessTokenSecret("nLTKCCvN0AmKBH6Gxb32ZXHrLDRFdzYhkRBSTsKbwUlmm");
-        TwitterFactory tf = new TwitterFactory(cb.build());
-        twitter = tf.getInstance();
         moodOfTwitter = "Neutral";
         int maxCount;
 

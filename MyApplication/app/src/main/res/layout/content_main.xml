@@ -6,18 +6,18 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
     <com.example.nolan.myapplication.GifView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        src="@mipmap/blue_resized" />
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    src="@mipmap/bluehex_final_resized" />
 
     <TextView android:text="Twitter&apos;s mood is..." android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/whatTweet"
-        android:layout_marginTop="124dp"
-        android:textSize="50dp"
-        android:layout_alignParentTop="true"
+        android:textSize="30dp"
+        android:textColor="#8cfff2eb"
+        android:layout_above="@+id/theMood"
         android:layout_centerHorizontal="true"
-        android:textColor="#8cfff2eb" />
+        android:layout_marginBottom="48dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,10 +25,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Happy!"
         android:id="@+id/theMood"
+        android:textSize="70dp"
+        android:textColor="#8cfff2eb"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="100dp"
-        android:textColor="#8cfff2eb" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="45dp"
@@ -37,7 +37,9 @@
         android:background="@mipmap/settingsicon"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp" />
 
 
 </RelativeLayout>
