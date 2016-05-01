@@ -19,7 +19,7 @@ public class colors extends AppCompatActivity {
     int openNum = 0;
     int strongNum = 0;
     int sadNum = 0;
-
+    public static String colorChange = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,31 +57,39 @@ public class colors extends AppCompatActivity {
                 if (angryNum == 9) angryNum = 0;
                 if (angryNum == 0) {
                     angryBot.setBackgroundResource(R.mipmap.popertranatlineddot);
-
+                    String colorChange = "pomegranate";
                 }
                 else if (angryNum == 1) {
                     angryBot.setBackgroundResource(R.mipmap.carrotlineddot);
+                    String colorChange = "carrot";
                 }
                 else if (angryNum == 2) {
                     angryBot.setBackgroundResource(R.mipmap.orangelineddot);
+                    String colorChange = "orange";
                 }
                 else if (angryNum == 3) {
                     angryBot.setBackgroundResource(R.mipmap.turquoiselineddot);
+                    String colorChange = "turquoise";
                 }
                 else if (angryNum == 4) {
                     angryBot.setBackgroundResource(R.mipmap.emeraldlineddot);
+                    String colorChange = "emerald";
                 }
                 else if (angryNum == 5) {
                     angryBot.setBackgroundResource(R.mipmap.peterriverlineddot);
+                    String colorChange = "peterriver";
                 }
                 else if (angryNum == 6) {
                     angryBot.setBackgroundResource(R.mipmap.amethystlineddot);
+                    String colorChange = "amethyst";
                 }
                 else if (angryNum == 7) {
                     angryBot.setBackgroundResource(R.mipmap.wetasphaltlineddot);
+                    String colorChange = "pomegranate";
                 }
                 else if (angryNum == 8) {
                     angryBot.setBackgroundResource(R.mipmap.concretelineddot);
+                    String colorChange = "concrete";
                 }
             }
         });

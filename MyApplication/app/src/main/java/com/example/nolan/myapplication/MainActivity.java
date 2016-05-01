@@ -1,13 +1,9 @@
 package com.example.nolan.myapplication;
 
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
@@ -15,12 +11,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.lang.reflect.Array;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import twitter4j.Query;
@@ -30,17 +22,14 @@ import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
-import android.app.DownloadManager.*;
-
-import com.parse.Parse;
-import com.parse.ParseObject;
 
 public class MainActivity extends AppCompatActivity {
     Twitter twitter;
     TextView whatTweet;
     TextView theMood;
-    public String moodOfTwitter;
+    public static String moodOfTwitter;
 
+    public static int happy, romantic, positive, strong, angry, sad, afraid, confused, open;
     TextView textViewInfo;
     GifView gifView;
     ImageView imageView;
@@ -61,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         toSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, setings.class));
+                startActivity(new Intent(MainActivity.this, settings.class));
             }
         });
 
@@ -75,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         twitter = tf.getInstance();
         moodOfTwitter = "Neutral";
         int maxCount;
-        int happy, romantic, positive, strong, angry, sad, afraid, confused, open;
 
         int great, glad, thankful, lucky; //happy
         int loving, affectionate, attracted, comforted; //romantic

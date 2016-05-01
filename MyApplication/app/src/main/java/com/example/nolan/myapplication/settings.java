@@ -1,18 +1,17 @@
 package com.example.nolan.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
-public class vlaues extends AppCompatActivity {
+public class settings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vlaues);
+        setContentView(R.layout.activity_setings);
 
         View view = this.getWindow().getDecorView();
 
@@ -27,6 +26,24 @@ public class vlaues extends AppCompatActivity {
         else if(m.moodOfTwitter == ("Confused")) view.setBackgroundColor(0xfff39c12);
         else if(m.moodOfTwitter == ("Open")) view.setBackgroundColor(0xff9b59b6);
         else view.setBackgroundColor(0xffe67e22);
+
+        Button theValues = (Button) findViewById(R.id.theValues);
+        Button theColors = (Button) findViewById(R.id.theColors);
+
+        theValues.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(settings.this, values.class));
+            }
+        });
+
+        theColors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(settings.this, colors.class));
+            }
+        });
+
     }
 
 }
