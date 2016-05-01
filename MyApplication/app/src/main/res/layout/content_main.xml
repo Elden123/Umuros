@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
+    <com.example.nolan.myapplication.GifView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    src="@mipmap/turquoise_resized" />
 
     <TextView android:text="Twitter&apos;s mood is..." android:layout_width="wrap_content"
         android:layout_height="wrap_content"
