@@ -1,6 +1,7 @@
 package com.example.nolan.myapplication;
 
 import android.app.DownloadManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,29 +32,48 @@ import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 import android.app.DownloadManager.*;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 public class MainActivity extends AppCompatActivity {
     Twitter twitter;
     TextView whatTweet;
+    TextView theMood;
+    public String moodOfTwitter;
+
+    TextView textViewInfo;
+    GifView gifView;
+    ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
         StrictMode.setThreadPolicy(policy);
+
         whatTweet = (TextView) findViewById(R.id.whatTweet);
+        theMood = (TextView) findViewById(R.id.theMood);
+        Button toSettings = (Button) findViewById(R.id.toSettings);
+
+        toSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, setings.class));
+            }
+        });
+
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
                 .setOAuthConsumerKey("1oH0TljZMX2JXVDTPgyPGXQH6")
                 .setOAuthConsumerSecret("GaYp0TNZrBdjcKuIiVHZFMJ93aCyKT04lwhj9KDKpITC84Oz5u")
                 .setOAuthAccessToken("4870958294-D9cxRtxrb3uyDPhWAL4KYJE8fJhTFXOU19krBX3")
                 .setOAuthAccessTokenSecret("nLTKCCvN0AmKBH6Gxb32ZXHrLDRFdzYhkRBSTsKbwUlmm");
-        TwitterFactory tf = new TwitterFactory(cb.build());
+ /*       TwitterFactory tf = new TwitterFactory(cb.build());
         twitter = tf.getInstance();
-        String moodOfTwitter = "neutral";
+        moodOfTwitter = "Neutral";
         int maxCount;
         int happy, romantic, positive, strong, angry, sad, afraid, confused, open;
 
@@ -68,47 +90,47 @@ public class MainActivity extends AppCompatActivity {
         //happy
         great = search("great");
         glad = search("glad");
-        //thankful = search("thankful");
-        //lucky = search("lucky");
-        happy = great + glad;
+        thankful = search("thankful");
+        lucky = search("lucky");
+        happy = great + glad + thankful + lucky;
 
         //romantic
-        /*loving = search("loving");
+        loving = search("loving");
         affectionate = search("affectionate");
         attracted = search("attracted");
         comforted = search("comforted");
-        romantic = loving + affectionate + attracted + comforted;*/
+        romantic = loving + affectionate + attracted + comforted;
 
         //positive
         excited = search("excited");
-        //brave = search("brave");
+        brave = search("brave");
         confident = search("confident");
-        //inspired = search("inspired");
-        positive = excited + confident;
+        inspired = search("inspired");
+        positive = excited + confident + brave + inspired;
 
         //strong
-        /*certain = search("certain");
+        certain = search("certain");
         unique = search("unique");
         secure = search("secure");
         dynamic = search("dynamic");
-        strong = certain + unique + secure + dynamic;*/
+        strong = certain + unique + secure + dynamic;
 
         //angry
         annoyed = search("annoyed");
         upset = search("upset");
-        //irritated = search("irritated");
-        //unpleasant = search("unpleasant");
-        angry = annoyed + upset;
+        irritated = search("irritated");
+        unpleasant = search("unpleasant");
+        angry = annoyed + upset + irritated + unpleasant;
 
         //sad
         lonely = search("lonely");
-        //desperate = search("desperate");
+        desperate = search("desperate");
         unhappy = search("unhappy");
-        //pained = search("pained");
-        sad = lonely + unhappy;
+        pained = search("pained");
+        sad = lonely + unhappy + desperate + pained;
 
         //afraid
-        /*fearful = search("fearful");
+        fearful = search("fearful");
         terrified = search("terrified");
         anxious = search("anxious");
         nervous = search("nervous");
@@ -126,27 +148,39 @@ public class MainActivity extends AppCompatActivity {
         sympathetic = search("sympathetic");
         accepting = search("accepting");
         interested = search("interested");
-        open = understanding + sympathetic + accepting + interested;*/
+        open = understanding + sympathetic + accepting + interested;
 
-        /*for(int i = 0; i < seconds.size(); i++) {
-            Log.d("seconds", seconds.get(i));
-        }*/
-
-        maxCount = Math.max(Math.max(happy, positive), Math.max(angry, sad));
-        //maxCount = Math.max(Math.max(Math.max(Math.max(happy, romantic), Math.max(positive, strong)), Math.max(Math.max(angry, sad), Math.max(afraid, confused))), open);
+        //maxCount = Math.max(Math.max(happy, positive), Math.max(angry, sad));
+        maxCount = Math.max(Math.max(Math.max(Math.max(happy, romantic), Math.max(positive, strong)), Math.max(Math.max(angry, sad), Math.max(afraid, confused))), open);
         Log.d("maxCount", maxCount + "");
-        if(maxCount == happy) moodOfTwitter = "happy";
-        //else if(maxCount == romantic) moodOfTwitter = "romantic";
-        else if(maxCount == positive) moodOfTwitter = "positive";
-        //else if(maxCount == strong) moodOfTwitter = "strong";
-        else if(maxCount == angry) moodOfTwitter = "angry";
-        else if(maxCount == sad) moodOfTwitter = "sad";
-        //else if(maxCount == afraid) moodOfTwitter = "afraid";
-        //else if(maxCount == confused) moodOfTwitter = "confused";
-        //else if(maxCount == open) moodOfTwitter = "open";
-        else moodOfTwitter = "neutral";
-
+        if (maxCount == happy) moodOfTwitter = "Happy";
+        else if(maxCount == romantic) moodOfTwitter = "Romantic";
+        else if (maxCount == positive) moodOfTwitter = "Positive";
+        else if(maxCount == strong) moodOfTwitter = "Strong";
+        else if (maxCount == angry) moodOfTwitter = "Angry";
+        else if (maxCount == sad) moodOfTwitter = "Sad";
+        else if(maxCount == afraid) moodOfTwitter = "Afraid";
+        else if(maxCount == confused) moodOfTwitter = "Confused";
+        else if(maxCount == open) moodOfTwitter = "Open";
+        else moodOfTwitter = "Neutral";
+*/
+        moodOfTwitter = "Romantic";
         Log.d("Mood of Twitter", moodOfTwitter + "");
+
+        theMood.setText(moodOfTwitter + "!");
+
+        View view = this.getWindow().getDecorView();
+
+        if(moodOfTwitter == "Happy") view.setBackgroundColor(0xffe67e22);
+        else if(moodOfTwitter == "Romantic") view.setBackgroundColor(0xffc0392b);
+        else if(moodOfTwitter == "Positive") view.setBackgroundColor(0x7f8c8d);
+        else if(moodOfTwitter == "Strong") view.setBackgroundColor(0xff34495e);
+        else if(moodOfTwitter == "Angry") view.setBackgroundColor(0xff9b59b6);
+        else if(moodOfTwitter == "Aad") view.setBackgroundColor(0xff3498db);
+        else if(moodOfTwitter == "Afraid") view.setBackgroundColor(0xff2ecc71);
+        else if(moodOfTwitter == "Confused") view.setBackgroundColor(0xff1abc9c);
+        else if(moodOfTwitter == "Open") view.setBackgroundColor(0xfff39c12);
+        else view.setBackgroundColor(0xffe67e22);
 
     }
 
@@ -174,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
                 if (!min.equals(lastMin)) {
                     break;
                 } else {
-                    whatTweet.setText("@" + tweet.getUser().getScreenName() + " - " + tweet.getText());
                     seconds.add(tweet.getCreatedAt().toString().substring(tweet.getCreatedAt().toString().length() - 11, tweet.getCreatedAt().toString().length() - 9));
                     lastMin = tweet.getCreatedAt().toString().substring(tweet.getCreatedAt().toString().length() - 14, tweet.getCreatedAt().toString().length() - 12);
                     Log.d("size", String.valueOf("swwwww"));
